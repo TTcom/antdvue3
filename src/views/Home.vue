@@ -21,6 +21,7 @@
 import HelloWorld from "@/components/HelloWorld.vue"
 import { ref } from "vue"
 import moment from "moment"
+import { Data } from "@/utils/type"
 export default {
   name: "Home",
   components: {
@@ -32,7 +33,7 @@ export default {
       type: String
     }
   },
-  setup(props) {
+  setup(props: Data) {
     let value3 = ref<any>([])
     console.log("props", props)
     const decLiteral = 6
