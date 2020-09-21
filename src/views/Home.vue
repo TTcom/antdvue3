@@ -9,6 +9,9 @@
     <div>
       <a-button type="primary" @click="handleClick">Primary</a-button>
     </div>
+    <div>
+      <span class="text">一个text</span>
+    </div>
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
   </div>
@@ -23,9 +26,17 @@ export default {
   components: {
     HelloWorld
   },
-  setup() {
+  props: {
+    msg: {
+      default: "",
+      type: String
+    }
+  },
+  setup(props) {
     let value3 = ref<any>([])
+    console.log("props", props)
     const decLiteral = 6
+    const color = "red"
     const methods = {
       onChange(date: any, dateString: any) {
         console.log(moment(date[0]).format("YYYY-MM-DD"), dateString)
@@ -38,8 +49,14 @@ export default {
     return {
       value3,
       decLiteral,
+      color,
       ...methods
     }
   }
 }
 </script>
+<style vars="{ color }">
+.text {
+  color: var(--color);
+}
+</style>
